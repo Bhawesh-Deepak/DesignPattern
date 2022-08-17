@@ -1,6 +1,6 @@
 ﻿
 
-using DecoratorDesignPattern;
+using TemplateDesignPattern;
 
 namespace SingletonDesignPattern
 {
@@ -8,20 +8,17 @@ namespace SingletonDesignPattern
     {
         static void Main(string[] args)
         {
-            ICar bmwCar1 = new MarutiCar();
-            bmwCar1.Manufacture();
-            Console.WriteLine(bmwCar1 + "\n");
-            DiselCarDecorator carWithDieselEngine = new DiselCarDecorator(bmwCar1);
-            carWithDieselEngine.ManufactureCar();
-            Console.WriteLine();
-            ICar bmwCar2 = new MarutiCar();
-            PetrolCarDecorator carWithPetrolEngine = new PetrolCarDecorator(bmwCar2);
-            carWithPetrolEngine.ManufactureCar();
-            Console.ReadKey();
+            ProcessOrder processOnline = new OnlineProduct();
+            processOnline.ProcessProductOrder();
 
-            Console.ReadKey();
+            Console.WriteLine("==================Process OffLine Product==================");
 
+
+            ProcessOrder processOffline = new OfflineProduct();
+            processOffline.ProcessProductOrder();
         }
 
     }
+
+  
 }
